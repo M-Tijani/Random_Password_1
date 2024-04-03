@@ -30,7 +30,7 @@ app.use("/api", router);
 
 try {
   if (app.listen(PORT)) {
-    console.log(`SERVER IS WORKING ON PORT ${process.env.PORT}`);
+    console.log(`SERVER IS WORKING ON PORT ${PORT}`);
   }
 } catch (error) {
   console.error(error);
