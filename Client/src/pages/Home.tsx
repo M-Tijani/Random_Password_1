@@ -19,6 +19,7 @@ import useSound from "use-sound";
 import Audio1 from "../audio/POP1.mp3";
 import Audio2 from "../audio/POP2.mp3";
 import Audio3 from "../audio/POP3.mp3";
+import Toest from "@/components/base_components/Toest";
 
 export default function Home() {
   // AUDIO
@@ -33,6 +34,10 @@ export default function Home() {
   const [symbols, setsymbols] = useState<boolean>(false);
   // Global Password
   const [globalpassowrd, setglobalpassowrd] = useState<string>("");
+
+  // Toest Message
+  const [copyToest, setcopyToest] = useState<string>("");
+  const [resetToest, setresetToest] = useState<string>("");
   const HandleGenerate = async () => {
     try {
       const res = await axios.post(import.meta.env.VITE_BASE_API, {
@@ -76,10 +81,18 @@ export default function Home() {
   const Handlercopy = () => {
     navigator.clipboard.writeText(globalpassowrd);
     POP2();
+    setcopyToest("New Password Copied");
+    setTimeout(() => {
+      setcopyToest("");
+    }, 2000);
   };
   const Handlereset = () => {
     Handleusergenerate();
     POP1();
+    setresetToest("New Password Generated");
+    setTimeout(() => {
+      setresetToest("");
+    }, 2000);
   };
   // Handle Plus & Minus
   const HandlerPlus = () => {
@@ -110,10 +123,10 @@ export default function Home() {
     setsymbols((prev) => !prev);
   };
   return (
-    <section className="Box_holder">
+    <section className="relative Box_holder">
       <Hero />
       <Input Title={globalpassowrd} />
-      <div className="w-full max-w-[270px] flex gap-2">
+      <div className="w-full max-w-[270px] md:max-w-[400px] flex gap-2">
         <Button Title="Get Pass" Icon={RotateCcw} Handler={Handlereset} />
         <Button_1 Title="Copy Pass" Icon={Copy} Handler={Handlercopy} />
       </div>
@@ -136,7 +149,7 @@ export default function Home() {
         />
       </div>
       <div>
-        <h1 className="text-xl flex gap-2 font-semibold">
+        <h1 className="text-xl  flex gap-2 font-semibold">
           Password Length:<span className="text-primary">{length}</span>
         </h1>
       </div>
@@ -152,6 +165,10 @@ export default function Home() {
           step={1}
         />
         <Icon_Button Icon={Plus} Handler={HandlerPlus} />
+      </div>
+      <div className="absolute -top-[50px] h-full">
+        {copyToest && <Toest Title={copyToest} />}
+        {resetToest && <Toest Title={resetToest} />}
       </div>
     </section>
   );
