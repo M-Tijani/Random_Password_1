@@ -69,9 +69,9 @@ export default function Home() {
       }
     }
   };
-  const handleGeneratewithclick = async () => {
-    Handleusergenerate();
-  };
+  // const handleGeneratewithclick = async () => {
+  //   Handleusergenerate();
+  // };
   // Handle Copy / Reset
   const Handlercopy = () => {
     navigator.clipboard.writeText(globalpassowrd);
@@ -85,14 +85,14 @@ export default function Home() {
   const HandlerPlus = () => {
     if (length[0] < 20) {
       setlength((prev) => [Number(Number(prev) + 1)]);
-      handleGeneratewithclick();
+      Handleusergenerate();
       POP3();
     }
   };
   const HandlerMinus = () => {
     if (length[0] > 5) {
       setlength((prev) => [Number(Number(prev) - 1)]);
-      handleGeneratewithclick();
+      Handleusergenerate();
       POP3();
     }
   };
