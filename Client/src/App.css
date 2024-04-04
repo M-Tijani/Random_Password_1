@@ -80,15 +80,18 @@
 
 @layer components {
   .Box_holder {
-    @apply w-full h-screen max-h-[400px] flex flex-col items-center justify-center gap-2 bg-myplate max-w-[400px] rounded-lg;
+    @apply w-full h-screen max-h-[400px] md:max-h-[500px] flex flex-col items-center justify-center gap-2 bg-myplate max-w-[400px] md:max-w-[700px] duration-200 rounded-lg;
   }
   .Input {
-    @apply w-full select-none border-none bg-primary text-white placeholder:text-white font-medium flex text-center h-[35px] rounded-md max-w-[270px];
+    @apply w-full select-none border-none bg-primary text-white placeholder:text-white font-medium flex text-center h-[35px] rounded-md max-w-[270px] md:max-w-[400px] md:h-[45px];
   }
   .Button {
     @apply w-full rounded-md h-[35px] bg-primary hover:bg-secondary duration-200 cursor-pointer text-sm flex items-center justify-center space-x-2 px-1;
   }
   .Button_Icon {
     @apply rounded-full flex items-center justify-center py-1 px-1 bg-primary;
+  }
+  .Toast {
+    @apply w-full flex py-2 px-4 rounded-md font-semibold text-lg bg-primary -z-50;
   }
 }
