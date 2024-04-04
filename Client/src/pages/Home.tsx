@@ -45,7 +45,7 @@ export default function Home() {
         uppercase: true,
         lowercase: true,
       });
-      console.log(res);
+
       setglobalpassowrd(res.data.password);
     } catch (error) {
       console.log(error);
@@ -67,7 +67,7 @@ export default function Home() {
           numbers: numbers,
           symbols: symbols,
         });
-        console.log(res);
+
         setglobalpassowrd(res.data.password);
       } catch (error) {
         console.log(error);
