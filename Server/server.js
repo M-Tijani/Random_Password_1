@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const PORT = 3000;
+const PORT = 4000;
 // ENV CONFIG
 require("dotenv").config();
 
@@ -30,7 +30,7 @@ app.use("/api", router);
 
 try {
   if (app.listen(PORT)) {
-    console.log(`SERVER IS WORKING ON PORT ${process.env.PORT}`);
+    console.log(`SERVER IS WORKING ON PORT ${PORT}`);
   }
 } catch (error) {
   console.error(error);
