@@ -1,7 +1,6 @@
 const generator = require("generate-password");
 const handlegeneratepassword = async (req, res) => {
   const { length, numbers, symbols, uppercase, lowercase } = req.body;
-  console.log(req.body);
   try {
     let password = generator.generate({
       excludeSimilarCharacters: true,
